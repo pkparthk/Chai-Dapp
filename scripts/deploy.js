@@ -11,7 +11,7 @@ async function getBalances(address) {
   return hre.ethers.utils.formatEther(balanceBigInt);
 }
 
-async function cosoleBalances(addresses) {
+async function consoleBalances(addresses) {
   let counter = 0;
   for (const address of addresses) {
     console.log(`Address ${counter} balance:`, await getBalances(address));
@@ -35,7 +35,9 @@ async function main() {
   // await contract.deployed();
   // const contract = await ethers.deployContract("Chai"); // instance of contract
 
-  await contract.waitForDeployment();
+  // await contract.waitForDeployment();
+
+  await contract.deployed();
   console.log("Address of contract:", contract.address);
 
   const addresses = [
@@ -45,7 +47,7 @@ async function main() {
     from3.address,
   ];
   console.log("Before buying chai");
-  await cosoleBalances(addresses);
+  await consoleBalances(addresses);
 
   const amount = { value: hre.ethers.utils.parseEther("1") };
   await contract.connect(from1).buyChai("from1", "Very nice chai", amount);
@@ -53,7 +55,7 @@ async function main() {
   await contract.connect(from3).buyChai("from3", "Very nice information", amount);
 
   console.log("After buying chai");
-  await cosoleBalances(addresses);
+  await consoleBalances(addresses);
 
   const memos = await contract.getMemos();
   consoleMemos(memos);

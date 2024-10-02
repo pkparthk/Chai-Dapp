@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.5.0 < 0.9.0;
 
-contract chai{
+contract chai {
     struct Memo{
         string name;
         string message;
@@ -22,7 +22,8 @@ contract chai{
         memos.push(Memo(name,message,block.timestamp,msg.sender));
     }
 
-    function getMemeos() public view returns(Memo[] memory){
+    function getMemos() public view returns (Memo[] memory) {
         return memos;
     }
+
 }
