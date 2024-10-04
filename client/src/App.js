@@ -16,7 +16,7 @@ function App() {
   useEffect(() => {
     const connectWallet = async () => {      
       // You have yo add your contract address
-      const contractAddress = "Your Deployed contecr address";
+      const contractAddress = "0xB91c44aBB4b485979E931d730191d870004a168f";
       const contractABI = abi.abi;
       try {
         const { ethereum } = window;
@@ -34,7 +34,7 @@ function App() {
             window.location.reload();
           });
 
-          // const provider = new ethers.providers.Web3Provider(ethereum);      
+          // const provider = new ethers.providers.Web3Provider(ethereum);
           const provider = new ethers.providers.Web3Provider(window.ethereum);
           const signer = provider.getSigner();
           const contract = new ethers.Contract(
