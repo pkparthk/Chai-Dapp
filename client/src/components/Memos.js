@@ -5,7 +5,7 @@ const Memos = ({ state }) => {
   const [memos, setMemos] = useState([]);
   const { contract } = state;
   // const newcontract = new ethers.Contract(
-  //   "0xB91c44aBB4b485979E931d730191d870004a168f",
+  //   "Your Contract Address",
   //   ABI.abi,
   //   state.signer
   // );
