@@ -14,8 +14,9 @@ function App() {
   });
   const [account, setAccount] = useState("None");
   useEffect(() => {
-    const connectWallet = async () => {
-      const contractAddress = "0xB91c44aBB4b485979E931d730191d870004a168f";
+    const connectWallet = async () => {      
+      // You have yo add your contract address
+      const contractAddress = "Your Deployed contecr address";
       const contractABI = abi.abi;
       try {
         const { ethereum } = window;
@@ -34,6 +35,7 @@ function App() {
           });
 
           // const provider = new ethers.providers.Web3Provider(ethereum);
+          // for issue fix issue #5
           const provider = new ethers.providers.Web3Provider(window.ethereum);
           const signer = provider.getSigner();
           const contract = new ethers.Contract(
