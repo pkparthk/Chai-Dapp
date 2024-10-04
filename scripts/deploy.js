@@ -32,12 +32,12 @@ async function main() {
   const chai = await hre.ethers.getContractFactory("chai");
   const contract = await chai.deploy(); //instance of contract
 
+  // const contract = await ethers.deployContract("chai"); // instance of contract
   // await contract.deployed();
-  // const contract = await ethers.deployContract("Chai"); // instance of contract
 
-  // await contract.waitForDeployment();
+  await contract.waitForDeployment();
 
-  await contract.deployed();
+  // await contract.deployed();
   console.log("Address of contract:", contract.address);
 
   const addresses = [
